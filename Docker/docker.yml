@@ -1,0 +1,58 @@
+version: '2'
+services:
+  fpm:
+    build:
+      context: ./
+      dockerfile: fpm.docker
+    volumes:
+      - ./../:/app
+    links:
+      - database
+    networks:
+      - rest_control
+  cli:
+    build:
+      context: ./
+      dockerfile: cli.docker
+    volumes:
+      - ./../:/app
+    tty: true
+    stdin_open: true
+    links:
+      - database
+    networks:
+      - rest_control
+  web:
+    build:
+      context: ./
+      dockerfile: nginx.docker
+    links:
+      - database
+      - fpm
+      - cli
+    volumes:
+      - ./../:/app
+      - ./mysite.template:/etc/nginx/conf.d/mysite.template
+    ports:
+      - "80:80"
+    networks:
+      - rest_control
+  database:
+    image: mysql:5.6
+    volumes:
+      - dbdata:/var/lib/mysql
+    environment:
+      - "MYSQL_DATABASE=training"
+      - "MYSQL_USER=user"
+      - "MYSQL_PASSWORD=secret"
+      - "MYSQL_ROOT_PASSWORD=secret"
+    ports:
+        - "33061:3306"
+    networks:
+      - rest_control
+volumes:
+  dbdata:
+networks:
+  rest_control:
+    external:
+      name: rest-control

@@ -1,0 +1,17 @@
+FROM php:7.1-cli
+
+RUN apt-get update && apt-get install -y \
+      libmcrypt-dev \
+      zlib1g-dev \
+      libssl-dev \
+      libpq-dev \
+      p7zip-full \
+      libzip-dev \
+      libmcrypt-dev \
+      mysql-client \
+    && docker-php-ext-install mcrypt mbstring pdo_mysql zip
+
+WORKDIR /app
+
+RUN curl -sS https://getcomposer.org/installer | php -- --install-dir=/usr/local/bin --filename=composer \
+    && rm -fr /root/.composer
