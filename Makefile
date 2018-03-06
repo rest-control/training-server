@@ -14,5 +14,3 @@ composer-install:
 	@-$(CONSOLE) run --service-ports --rm cli composer install
 database-migrate:
 	@-$(CONSOLE) run --service-ports --rm cli php artisan migrate
-stop:
-	@-$(CONSOLE) stop
