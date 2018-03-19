@@ -1,15 +1,16 @@
 ## Training server for RestControl
 TrainingServer contains several REST endpoints e.q. with oAuth/basic authentication, which you can use for learning RestControl.
 
-##Installation
+## Installation
 ```
  make build
  make start
 ```
 
-##Endpoints
+## Endpoints
 
-####-> Plain api(without any authorization)
+#### -> Plain api(without any authorization)
+
 **(GET) http://IP_ADDR/plain/users**
 
 Sample response:
@@ -36,7 +37,8 @@ Sample response:
 ]
 ```
 
-####-> Basic auth
+#### -> Basic auth
+
 **(GET) http://IP_ADDR/basi-auth**
 
 Sample response:
@@ -45,7 +47,8 @@ Sample response:
     "status": "ok"
  ]
 ```
-####-> oAuth2 Endpoints
+#### -> oAuth2 Endpoints
+
 **(POST) http://IP_ADDR/oauth2/token**
 
 > Form params:
