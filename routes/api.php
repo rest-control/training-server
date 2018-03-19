@@ -17,3 +17,16 @@ Route::get('basic-auth', function(){
             'status' => 'ok',
         ]);
 })->middleware('auth.basic.once');
+
+
+Route::get('plain/users', function() {
+    return response()
+        ->json(\DB::table('users')->select()->limit(20)->get());
+});
+
+Route::get('oauth2/users', function(){
+
+    return response()
+        ->json(\DB::table('users')->select()->limit(20)->get());
+
+})->middleware('auth:api');
