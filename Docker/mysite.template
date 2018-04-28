@@ -2,7 +2,7 @@ server {
     listen 80 default_server;
     server_name default_server;
 
-    root /app/public;
+    root /app/server/public;
     index index.php index.html;
 
     client_body_buffer_size 16k;
@@ -20,6 +20,6 @@ server {
         fastcgi_read_timeout 90s;
         fastcgi_pass fpm:9000;
         include fastcgi_params;
-        fastcgi_param   SCRIPT_FILENAME  /app/public/index.php;
+        fastcgi_param   SCRIPT_FILENAME  /app/server/public/index.php;
     }
 }

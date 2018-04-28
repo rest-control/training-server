@@ -4,7 +4,17 @@ TrainingServer contains several REST endpoints e.q. with oAuth/basic authenticat
 ## Installation
 ```
  make build
+ make first-run
+```
+## Start server
+```
  make start
+```
+
+## Usage
+```
+ # Run all tests
+ make run-tests
 ```
 
 ## Endpoints
@@ -36,6 +46,11 @@ Sample response:
   ],
 ]
 ```
+
+**(GET) http://ID_ADDR/plain/files/csv**
+**(GET) http://ID_ADDR/plain/files/css**
+**(GET) http://ID_ADDR/plain/files/js**
+**(GET) http://ID_ADDR/plain/files/png**
 
 #### -> Basic auth
 

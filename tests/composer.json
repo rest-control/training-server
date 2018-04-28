@@ -1,0 +1,13 @@
+{
+  "keywords": ["testing", "rest", "api"],
+  "license": "MIT",
+  "require": {
+    "rest-control/rest-control": "dev-master"
+  },
+  "autoload": {
+    "psr-4": {
+      "Tests\\": "./tests"
+    }
+  },
+  "minimum-stability": "dev"
+}

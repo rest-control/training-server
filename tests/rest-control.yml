@@ -1,0 +1,16 @@
+tests:
+  namespace: Tests\
+  path: {{FILE_DIR}}/tests
+  classSuffix: Test.php
+  methodPrefix: example
+#Api mocked responses
+apiMockResponses:
+  - \Tests\ServerResponses\GetUser
+  - \Tests\ServerResponses\GetUsers
+#Api Client
+apiClient: \RestControl\ApiClient\MockApiClient
+#Custom response filters
+#responseFilters:
+#  - \Sample\Filter\Response\Class
+variables:
+  training: http://web/
