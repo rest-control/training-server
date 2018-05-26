@@ -24,6 +24,12 @@ Route::get('plain/users', function() {
         ->json(\DB::table('users')->select()->limit(20)->get());
 });
 
+Route::get('plain/cookies', function() {
+    return response('ok')
+        ->cookie('test', 'value', 10)
+        ->cookie('another', 'cookie', 10);
+});
+
 Route::get('oauth2/users', function(){
 
     return response()
