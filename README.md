@@ -51,6 +51,7 @@ Sample response:
 **(GET) http://ID_ADDR/plain/files/css**
 **(GET) http://ID_ADDR/plain/files/js**
 **(GET) http://ID_ADDR/plain/files/png**
+**(GET) http://ID_ADDR/plain/cookies**
 
 #### -> Basic auth
 
